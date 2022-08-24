@@ -1,4 +1,5 @@
 import Body from 'components/bodyComponents';
+import Footer from 'components/footerComponents';
 import Header from 'components/headerComponents';
 import Head from 'next/head';
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Body />
 
       {/* Footer */}
+      <Footer />
     </div>
   );
 }
