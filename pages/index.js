@@ -1,6 +1,6 @@
-import Body from 'components/bodyComponents';
-import Footer from 'components/footerComponents';
-import Header from 'components/headerComponents';
+import Body from 'components/home-page/bodyComponents';
+import Footer from 'components/home-page/footerComponents';
+import Header from 'components/home-page/headerComponents';
 import Head from 'next/head';
 
 export default function Home() {

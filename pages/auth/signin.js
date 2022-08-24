@@ -1,4 +1,4 @@
-import Header from 'components/headerComponents';
+import Header from 'components/home-page/headerComponents';
 import { getProviders, signIn } from 'next-auth/react';
 import Image from 'next/image';
 import GoogleLogo from 'public/images/google-logo-1.jpg';

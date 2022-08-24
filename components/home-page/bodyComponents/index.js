@@ -3,9 +3,11 @@ import GoogleLogo from 'public/images/google-logo-1.jpg';
 import SearchIcon from 'public/icons/search.svg';
 import MicIcon from 'public/icons/mic.svg';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Body = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const router = useRouter();
 
   const handleChangeInput = (e) => setSearchTerm(e.target.value);
 
@@ -18,9 +20,9 @@ const Body = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!searchTerm) return;
+    if (!searchTerm.trim()) return;
 
-    console.log(searchTerm);
+    router.push(`/search?term=${searchTerm.trim()}`);
   };
   return (
     <form onSubmit={handleSubmit} className="mx-auto w-9/12 space-y-7 mt-24">
