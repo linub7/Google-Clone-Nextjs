@@ -22,7 +22,7 @@ const Body = () => {
 
     if (!searchTerm.trim()) return;
 
-    router.push(`/search?term=${searchTerm.trim()}`);
+    router.push(`/search?term=${searchTerm.trim()}&searchType=`);
   };
   return (
     <form onSubmit={handleSubmit} className="mx-auto w-9/12 space-y-7 mt-24">

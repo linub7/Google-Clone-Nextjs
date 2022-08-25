@@ -6,6 +6,7 @@ import MicIcon from 'public/icons/mic.svg';
 import CloseIcon from 'public/icons/close.svg';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import HeaderOptions from './HeaderOptions';
 
 const SearchPageHeader = ({ term }) => {
   const router = useRouter();
@@ -25,7 +26,11 @@ const SearchPageHeader = ({ term }) => {
 
     if (!searchTerm.trim()) return;
 
-    router.push(`/search?term=${searchTerm}`);
+    router.push(`/search?term=${searchTerm}&searchType=`);
+  };
+
+  const handleTabSelect = (tab) => {
+    router.push(`/search?term=${term}&searchType=${tab}`);
   };
   return (
     <header className="sticky top-0 bg-white">
@@ -84,21 +89,11 @@ const SearchPageHeader = ({ term }) => {
           <User />
         </div>
       </div>
+      <HeaderOptions
+        handleClickAll={() => handleTabSelect('')}
+        handleClickImage={() => handleTabSelect('images')}
+      />
     </header>
-    // <div className="flex justify-between items-center mt-4">
-    //   <div className="flex justify-between items-center space-x-3 w-2/3">
-    //     <Image src={GoogleLogo} height={30} width={130} alt="google" />
-    //     <div className="flex items-center border w-full border-gray-300 rounded-full px-3 py-2 hover:shadow-lg focus-within:shadow-lg">
-    //       <input type="text" className="w-full outline-none ml-2" />
-    //       <Image src={CloseIcon} height={18} width={18} alt="close" />
-    //       <Image src={MicIcon} height={18} width={18} alt="microphone" />
-    //       <Image src={SearchIcon} height={18} width={18} alt="search" />
-    //     </div>
-    //   </div>
-    //   <div>
-    //     <User />
-    //   </div>
-    // </div>
   );
 };
 

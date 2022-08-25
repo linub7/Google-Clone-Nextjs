@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 const Search = () => {
   const {
-    query: { term },
+    query: { term, searchType },
   } = useRouter();
 
   return (
