@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import response from 'Response';
+import SearchResults from 'components/search-page/resultComponent';
 
 const Search = ({ results }) => {
   const {
@@ -25,6 +26,7 @@ const Search = ({ results }) => {
       <SearchPageHeader term={term} />
 
       {/* Search Result */}
+      <SearchResults results={results} />
     </div>
   );
 };

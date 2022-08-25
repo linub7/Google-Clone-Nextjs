@@ -12,7 +12,7 @@ const HeaderOption = ({ title, icon, handleClick, active }) => {
       onClick={handleClick}
     >
       <Image src={icon} height={20} width={20} alt="icon" />
-      <p>{title}</p>
+      <p className="hidden sm:block">{title}</p>
     </div>
   );
 };
