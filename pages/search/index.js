@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import response from 'Response';
 import SearchResults from 'components/search-page/resultComponent';
+import ImageSearchResult from 'components/search-page/imageSearchResult';
 
 const Search = ({ results }) => {
   const {
     query: { term, searchType },
   } = useRouter();
 
-  console.log(results);
   return (
     <div>
       <Head>
@@ -26,14 +26,18 @@ const Search = ({ results }) => {
       <SearchPageHeader term={term} />
 
       {/* Search Result */}
-      <SearchResults results={results} />
+      {!searchType ? (
+        <SearchResults results={results} />
+      ) : (
+        <ImageSearchResult results={results} />
+      )}
     </div>
   );
 };
 
 export async function getServerSideProps({ query }) {
   const startIndex = query?.start || '1';
-  const mockData = true;
+  const mockData = false;
   const { data } = mockData
     ? response
     : await axios.get(`https://www.googleapis.com/customsearch/v1?key=${
