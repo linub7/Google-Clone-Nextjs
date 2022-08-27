@@ -1,3 +1,4 @@
+import PaginationButtons from './PaginationButtons';
 import ResultItem from './ResultItem';
 
 const SearchResults = ({ results }) => {
@@ -7,9 +8,10 @@ const SearchResults = ({ results }) => {
         About {results?.searchInformation?.formattedTotalResults} results (
         {results?.searchInformation?.formattedSearchTime} seconds)
       </p>
-      {results?.items.map((result, index) => (
+      {results?.items?.map((result, index) => (
         <ResultItem key={index} result={result} />
       ))}
+      <PaginationButtons />
     </div>
   );
 };

@@ -32,6 +32,7 @@ const Search = ({ results }) => {
 };
 
 export async function getServerSideProps({ query }) {
+  const startIndex = query?.start || '1';
   const mockData = true;
   const { data } = mockData
     ? response
@@ -39,7 +40,7 @@ export async function getServerSideProps({ query }) {
         process.env.API_KEY
       }&cx=${process.env.CXT_KEY}&q=${query.term}${
         query.searchType ? `&searchType=image` : ''
-      }
+      }&start=${startIndex}
   `);
 
   return {
